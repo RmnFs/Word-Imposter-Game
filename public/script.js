@@ -29,7 +29,11 @@ async function seeWord(name) {
   });
   const data = await res.json();
   if (data.word) {
+    if (data.isImposter) {
+    alert(`Your word is: ${data.word}\n(You are the IMPOSTER!)`);
+  } else {
     alert(`Your word is: ${data.word}`);
+  }
   } else {
     alert(data.message || "Error");
   }
